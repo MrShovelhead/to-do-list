@@ -13,5 +13,10 @@ function addOpgaveToList(){
         inputfield.focus()
     }
 }
-
+inputfield.addEventListener("keydown", function(event){ //anomym funktion som bruger et event som paramenter
+    if (event.key === "Enter"){
+        event.preventDefault(); 
+        addOpgaveToList();
+    }
+})
 button.addEventListener("click",addOpgaveToList);
