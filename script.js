@@ -15,8 +15,15 @@ function addOpgaveToList(){
         deleteButton.addEventListener("click", function (){ // Den anonyme funktion udskyder kaldet til funktionen deleteOpgave, indtil der bliver trykket på knappen
             deleteOpgave(li)
         })
+
+        const doneButton = document.createElement('button')
+        doneButton.textContent = 'Jobs Done'
+        doneButton.addEventListener("click",function(){
+            doneOpgave(li)
+        })
+
         li.appendChild(deleteButton) //tilføjer knappen til li
-        
+        li.appendChild(doneButton)
         ul.appendChild(li) // jeg tilføjer li element til ul elementet
         inputfield.value = "" // tømmer input feltet
         inputfield.focus()
@@ -31,5 +38,9 @@ inputfield.addEventListener("keydown", function(event){ //anomym funktion som br
 
 function deleteOpgave(listItem){
     ul.removeChild(listItem);
+}
+
+function doneOpgave(listItem){
+    listItem.classList.toggle('job-done')
 }
 button.addEventListener("click",addOpgaveToList);
