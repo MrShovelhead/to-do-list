@@ -7,6 +7,9 @@ function addOpgaveToList(){
 
     if (inputText.trim() !== ""){
         //let ul = document.getElementById("opgave-liste") // Henter ul fra index.html
+        const doneButton = document.createElement('button')
+        doneButton.textContent = 'Jobs Done'
+
         let li = document.createElement("li") // opretter et nyt html element li
         li.appendChild(document.createTextNode(inputText)) // jeg tilføjer inputText til li elementet
         
@@ -16,7 +19,7 @@ function addOpgaveToList(){
             deleteOpgave(li)
         })
         li.appendChild(deleteButton) //tilføjer knappen til li
-        
+        li.appendChild(doneButton)
         ul.appendChild(li) // jeg tilføjer li element til ul elementet
         inputfield.value = "" // tømmer input feltet
         inputfield.focus()
